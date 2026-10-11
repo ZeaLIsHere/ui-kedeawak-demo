@@ -1,0 +1,457 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+.main {
+  flex: 1;
+  margin-left: 240px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  padding: 24px 32px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* KPI Row */
+.kpiRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.kpiCard {
+  padding: 20px;
+  transition: all var(--transition);
+}
+
+.kpiCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.kpiTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.kpiIcon {
+  font-size: 24px;
+}
+
+.kpiValue {
+  margin-bottom: 4px;
+}
+
+.kpiNumber {
+  font-size: 22px;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  color: var(--color-text-primary);
+}
+
+.kpiLabel {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.kpiSub {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--color-whatsapp);
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+/* Chart Card */
+.salesChartCard {
+  padding: 20px 24px;
+  flex: 2;
+}
+
+.wafeedCard {
+  padding: 0;
+  overflow: hidden;
+  flex: 1;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 20px 16px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cardTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  font-family: var(--font-heading);
+}
+
+.cardSub {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+.chartLegend {
+  display: flex;
+  gap: 16px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.legendDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.chartTooltip {
+  background: var(--color-text-primary);
+  border-radius: 10px;
+  padding: 10px 14px;
+  box-shadow: var(--shadow-md);
+  font-size: 12px;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.8;
+}
+
+.tooltipLabel {
+  font-weight: 700;
+  color: white;
+  margin-bottom: 4px;
+}
+
+/* WhatsApp Feed */
+.wafeedList {
+  padding: 8px 0;
+}
+
+.wafeedItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  transition: background var(--transition);
+  cursor: pointer;
+}
+
+.wafeedItem:hover {
+  background: var(--color-bg);
+}
+
+.wafeedAvatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.wafeedContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.wafeedTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.wafeedName {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.wafeedTime {
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+.wafeedMsg {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Alert Card */
+.alertCard {
+  padding: 20px;
+}
+
+.alertList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.alertItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.alertName {
+  font-size: 13px;
+  color: var(--color-text-primary);
+  width: 160px;
+  flex-shrink: 0;
+}
+
+.alertBar {
+  flex: 1;
+  height: 6px;
+  background: var(--color-border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.alertFill {
+  height: 100%;
+  background: var(--color-danger);
+  border-radius: 3px;
+  transition: width var(--transition-slow);
+}
+
+.alertCount {
+  font-size: 12px;
+  font-weight: 700;
+  width: 90px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* AI Card */
+.aiCard {
+  padding: 20px;
+}
+
+.aiCardHeader {
+  margin-bottom: 12px;
+}
+
+.aiChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.aiText {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.aiItems {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.aiItem {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 12px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-border-light);
+  align-items: center;
+}
+
+.aiItem:last-child {
+  border-bottom: none;
+}
+
+.aiTotal {
+  background: var(--color-bg);
+}
+
+.aiActions {
+  display: flex;
+  gap: 10px;
+}
+
+.aiActions .btn {
+  flex: 1;
+}
+
+/* Transaction Table */
+.transactionCard {
+  padding: 0;
+  overflow: hidden;
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  text-align: left;
+  padding: 10px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.table td {
+  padding: 12px 16px;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.table tr:hover td {
+  background: var(--color-bg);
+}
+
+.tdTime {
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-muted) !important;
+  width: 60px;
+}
+
+.tdDesc {
+  color: var(--color-text-primary) !important;
+  font-weight: 500;
+}
+
+.tdAmount {
+  font-weight: 700;
+  font-size: 14px !important;
+}
+
+.sourceChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  background: var(--color-bg);
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+}
+
+/* Debt Card */
+.debtCard {
+  padding: 0;
+  overflow: hidden;
+}
+
+.debtTotal {
+  font-size: 20px;
+  font-weight: 800;
+  margin-top: 2px;
+}
+
+.debtList {
+  padding: 8px 0;
+}
+
+.debtItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+}
+
+.debtAvatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-danger-light);
+  color: var(--color-danger);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.debtInfo {
+  flex: 1;
+}
+
+.debtName {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.debtDays {
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+.debtAmount {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-danger);
+}
+
+/* Grid layouts */
+.gridRow {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+.gridRow3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
