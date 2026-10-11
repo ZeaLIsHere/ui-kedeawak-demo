@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
+import { Archive, BarChart3, Camera, House, MessageCircle, Package, Play } from 'lucide-react';
 import styles from './chat.module.css';
 
 function formatRp(n: number) {
@@ -99,7 +100,7 @@ function MessageBubble({ msg }: { msg: Message }) {
         <div className={styles.msgRow}>
           <div className={styles.bubbleOwner}>
             <div className={styles.voiceNote}>
-              <div className={styles.voicePlayBtn}>▶</div>
+              <div className={styles.voicePlayBtn}><Play size={14} aria-hidden="true" /></div>
               <Waveform />
               <span className={styles.voiceDuration}>{msg.duration}</span>
             </div>
@@ -115,7 +116,7 @@ function MessageBubble({ msg }: { msg: Message }) {
           <div className={styles.bubbleAI}>
             {!receiptCancelled ? (
               <>
-                <p className={styles.aiGreeting}>✅ Sudah saya catat</p>
+                <p className={styles.aiGreeting}>Sudah saya catat</p>
                 <div className={styles.receiptCard}>
                   {msg.items.map((item, i) => (
                     <div key={i} className={styles.receiptRow}>
@@ -152,7 +153,7 @@ function MessageBubble({ msg }: { msg: Message }) {
           <div className={styles.bubbleOwner}>
             <div className={styles.photoThumb}>
               <div className={styles.photoPlaceholder}>
-                <span>📸</span>
+                <span><Camera size={32} aria-hidden="true" /></span>
                 <span>{msg.caption}</span>
               </div>
             </div>
@@ -166,7 +167,7 @@ function MessageBubble({ msg }: { msg: Message }) {
           <div className={styles.aiAvatar}>AI</div>
           <div className={styles.bubbleAI}>
             <p className={styles.aiGreeting}>
-              📄 Saya baca total{' '}
+              Saya baca total{' '}
               <strong className="money">{formatRp(msg.total)}</strong>, benar?
             </p>
             {ocrConfirmed === null ? (
@@ -176,7 +177,7 @@ function MessageBubble({ msg }: { msg: Message }) {
                   onClick={() => setOcrConfirmed(true)}
                   id="ocr-benar-btn"
                 >
-                  ✓ Benar
+                  Benar
                 </button>
                 <button
                   className="btn btn-outline btn-sm"
@@ -187,9 +188,9 @@ function MessageBubble({ msg }: { msg: Message }) {
                 </button>
               </div>
             ) : ocrConfirmed ? (
-              <p className={styles.ocrDone}>✅ Dicatat sebagai pengeluaran {formatRp(msg.total)}</p>
+              <p className={styles.ocrDone}>Dicatat sebagai pengeluaran {formatRp(msg.total)}</p>
             ) : (
-              <p className={styles.ocrDone}>📝 Silakan ketik jumlah yang benar</p>
+              <p className={styles.ocrDone}>Silakan ketik jumlah yang benar</p>
             )}
           </div>
         </div>
@@ -210,7 +211,7 @@ function MessageBubble({ msg }: { msg: Message }) {
           <div className={styles.aiAvatar}>AI</div>
           <div className={styles.bubbleAI}>
             <div className={styles.summaryCard}>
-              <p className={styles.summaryTitle}>📊 Ringkasan Hari Ini — Minggu, 11 Okt</p>
+              <p className={styles.summaryTitle}>Ringkasan Hari Ini: Minggu, 11 Okt</p>
               <div className={styles.summaryRow}>
                 <span>Penjualan</span>
                 <strong className="money" style={{ color: 'var(--color-primary)' }}>
@@ -252,7 +253,7 @@ function MessageBubble({ msg }: { msg: Message }) {
           <div className={styles.aiAvatar}>AI</div>
           <div className={styles.bubbleAI}>
             <p className={styles.aiGreeting}>
-              ⚠️ {msg.product} tinggal {msg.qty} kg. Kirim pesanan {msg.qtyOrder} kg {msg.product} ke {msg.supplier}?
+              {msg.product} tinggal {msg.qty} kg. Kirim pesanan {msg.qtyOrder} kg {msg.product} ke {msg.supplier}?
             </p>
             {stockSent === null ? (
               <div className={styles.ocrActions}>
@@ -261,7 +262,7 @@ function MessageBubble({ msg }: { msg: Message }) {
                   onClick={() => setStockSent(true)}
                   id="stock-kirim-btn"
                 >
-                  📦 Kirim
+                  Kirim
                 </button>
                 <button
                   className="btn btn-outline btn-sm"
@@ -272,7 +273,7 @@ function MessageBubble({ msg }: { msg: Message }) {
                 </button>
               </div>
             ) : stockSent ? (
-              <p className={styles.ocrDone}>✅ Pesanan dikirim ke {msg.supplier} via WhatsApp!</p>
+              <p className={styles.ocrDone}>Pesanan dikirim ke {msg.supplier} via WhatsApp!</p>
             ) : (
               <p className={styles.ocrDone}>Oke, saya ingatkan lagi nanti.</p>
             )}
@@ -420,18 +421,18 @@ export default function ChatPage() {
         {/* Tab Bar */}
         <div className={styles.tabBar}>
           {[
-            { id: 'beranda', label: 'Beranda', icon: '🏠', href: '/dashboard' },
-            { id: 'chat', label: 'Chat AI', icon: '💬', href: '/chat', active: true },
-            { id: 'pesanan', label: 'Pesanan', icon: '📦', href: '/pesanan' },
-            { id: 'stok', label: 'Stok', icon: '🗃️', href: '/stok' },
-            { id: 'laporan', label: 'Laporan', icon: '📊', href: '/laporan' },
+            { id: 'beranda', label: 'Beranda', icon: House, href: '/dashboard' },
+            { id: 'chat', label: 'Chat AI', icon: MessageCircle, href: '/chat', active: true },
+            { id: 'pesanan', label: 'Pesanan', icon: Package, href: '/pesanan' },
+            { id: 'stok', label: 'Stok', icon: Archive, href: '/stok' },
+            { id: 'laporan', label: 'Laporan', icon: BarChart3, href: '/laporan' },
           ].map(tab => (
             <Link
               key={tab.id}
               href={tab.href}
               className={`${styles.tabItem} ${tab.active ? styles.tabItemActive : ''}`}
             >
-              <span className={styles.tabIcon}>{tab.icon}</span>
+              <span className={styles.tabIcon}><tab.icon size={20} aria-hidden="true" /></span>
               <span className={styles.tabLabel}>{tab.label}</span>
             </Link>
           ))}

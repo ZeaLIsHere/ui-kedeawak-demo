@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { AlertTriangle, Bot, ChartColumn, CircleX, ClipboardList, Package, ShoppingBag, Smartphone, SquarePen, CheckCircle2, Store, X } from 'lucide-react';
 import Sidebar from '@/components/layout/Sidebar';
 import TopBar from '@/components/layout/TopBar';
 import { stokData as d } from '@/data/mockStokLaporan';
@@ -55,22 +56,22 @@ export default function StokPage() {
           {/* Summary cards */}
           <div className={styles.summaryRow}>
             <div className={`${styles.summaryCard} card`}>
-              <span className={styles.summaryIcon}>📦</span>
+              <span className={styles.summaryIcon}><Package size={24} aria-hidden="true" /></span>
               <strong className={styles.summaryNum}>{d.summary.totalBarang}</strong>
               <p className={styles.summaryLabel}>Total Barang</p>
             </div>
             <div className={`${styles.summaryCard} card`} style={{borderColor:'var(--color-accent)'}}>
-              <span className={styles.summaryIcon}>⚠️</span>
+              <span className={styles.summaryIcon}><AlertTriangle size={24} aria-hidden="true" /></span>
               <strong className={styles.summaryNum} style={{color:'#B07B10'}}>{d.summary.stokMenipis}</strong>
               <p className={styles.summaryLabel}>Stok Menipis</p>
             </div>
             <div className={`${styles.summaryCard} card`} style={{borderColor:'var(--color-danger)'}}>
-              <span className={styles.summaryIcon}>❌</span>
+              <span className={styles.summaryIcon}><CircleX size={24} aria-hidden="true" /></span>
               <strong className={styles.summaryNum} style={{color:'var(--color-danger)'}}>{d.summary.habis}</strong>
               <p className={styles.summaryLabel}>Habis</p>
             </div>
             <div className={`${styles.summaryCard} card`}>
-              <span className={styles.summaryIcon}>💰</span>
+              <span className={styles.summaryIcon}><ShoppingBag size={24} aria-hidden="true" /></span>
               <strong className={`${styles.summaryNum} money`} style={{fontSize:18}}>{formatRp(d.summary.nilaiStok)}</strong>
               <p className={styles.summaryLabel}>Nilai Stok</p>
             </div>
@@ -85,7 +86,7 @@ export default function StokPage() {
                 onClick={() => setFilter(f)}
                 id={`filter-${f.toLowerCase()}`}
               >
-                {f === 'Menipis' && '⚠️ '}{f === 'Habis' && '❌ '}{f}
+                {f === 'Menipis' && <AlertTriangle size={16} aria-hidden="true" />}{f === 'Habis' && <CircleX size={16} aria-hidden="true" />}{f}
               </button>
             ))}
             <span className={styles.filterCount}>{filtered.length} barang</span>
@@ -112,7 +113,7 @@ export default function StokPage() {
                     <tr key={product.id}>
                       <td>
                         <div className={styles.productCell}>
-                          <span className={styles.productEmoji}>{product.emoji}</span>
+                          <span className={styles.productIcon}><Package size={20} aria-hidden="true" /></span>
                           <span className={styles.productName}>{product.name}</span>
                         </div>
                       </td>
@@ -133,7 +134,7 @@ export default function StokPage() {
                             />
                           </div>
                           <span className={`${styles.stockNum} ${product.status === 'habis' ? styles.stockHabis : product.status === 'menipis' ? styles.stockMenipis : ''}`}>
-                            {product.stok} {product.stok === 0 ? '— Habis' : ''}
+                            {product.stok} {product.stok === 0 ? '(Habis)' : ''}
                           </span>
                         </div>
                       </td>
@@ -166,14 +167,14 @@ export default function StokPage() {
               <div className={`${styles.drawer} card`}>
                 <div className={styles.drawerHeader}>
                   <div>
-                    <h3 className={styles.drawerTitle}>📋 Draft Pesanan Supplier</h3>
-                    <div className={styles.aiTag}>🤖 Dibuat oleh AI</div>
+                    <h3 className={styles.drawerTitle}><ClipboardList size={18} aria-hidden="true" /> Draft Pesanan Supplier</h3>
+                    <div className={styles.aiTag}><Bot size={16} aria-hidden="true" /> Dibuat oleh AI</div>
                   </div>
-                  <button className={styles.drawerClose} onClick={() => setDrawerOpen(false)}>✕</button>
+                  <button className={styles.drawerClose} onClick={() => setDrawerOpen(false)} aria-label="Tutup draft pesanan"><X size={18} aria-hidden="true" /></button>
                 </div>
 
                 <div className={styles.supplierInfo}>
-                  <p className={styles.supplierName}>🏪 {d.supplierDraft.supplier}</p>
+                  <p className={styles.supplierName}><Store size={18} aria-hidden="true" /> {d.supplierDraft.supplier}</p>
                   <p className={styles.supplierPhone}>{d.supplierDraft.phone}</p>
                 </div>
 
@@ -194,7 +195,7 @@ export default function StokPage() {
                 </div>
 
                 <p className={styles.draftNote}>
-                  📊 {d.supplierDraft.note}
+                  <ChartColumn size={16} aria-hidden="true" /> {d.supplierDraft.note}
                 </p>
 
                 <div className={styles.drawerActions}>
@@ -206,15 +207,15 @@ export default function StokPage() {
                         onClick={() => setApproved(true)}
                         id="approve-supplier-btn"
                       >
-                        📱 Setujui dan Kirim via WhatsApp
+                        <Smartphone size={16} aria-hidden="true" /> Setujui dan Kirim via WhatsApp
                       </button>
                       <button className="btn btn-ghost" style={{width:'100%'}}>
-                        ✏️ Ubah Jumlah
+                        <SquarePen size={16} aria-hidden="true" /> Ubah Jumlah
                       </button>
                     </>
                   ) : (
                     <div style={{textAlign:'center', padding:'16px 0'}}>
-                      <span style={{fontSize:40}}>✅</span>
+                      <CheckCircle2 size={40} aria-hidden="true" />
                       <p style={{fontWeight:700, color:'var(--color-primary)', marginTop:8}}>
                         Pesanan terkirim!
                       </p>
@@ -240,7 +241,7 @@ export default function StokPage() {
                   <div className={`${styles.timelineItem} ${approved ? styles.timelineDone : ''}`}>
                     <div className={styles.timelineDot}/>
                     <span>Terkirim ke supplier</span>
-                    <span className={styles.timelineTime}>—</span>
+                    <span className={styles.timelineTime}>Belum</span>
                   </div>
                 </div>
               </div>

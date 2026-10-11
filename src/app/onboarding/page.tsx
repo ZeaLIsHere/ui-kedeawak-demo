@@ -2,18 +2,19 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { Camera, ChartColumn, Check, LockKeyhole, MessageCircle, Mic, Smartphone, Store } from 'lucide-react';
 import styles from './onboarding.module.css';
 
 type Screen = 1 | 2 | 3;
 
-// Screen 1 — Selamat Datang
+// Screen 1: Selamat Datang
 function Screen1({ onNext }: { onNext: () => void }) {
   return (
     <div className={styles.screen}>
       <div className={styles.warungPhoto}>
         <div className={styles.warungBg}>
           <div className={styles.warungVisual}>
-            <div className={styles.warungSign}>🏪 Warung Berkah</div>
+            <div className={styles.warungSign}><Store size={20} aria-hidden="true" /> Warung Berkah</div>
             <div className={styles.warungProducts}>
               <div className={styles.warungProduct} style={{background:'#FF6B35'}}>Indomie</div>
               <div className={styles.warungProduct} style={{background:'#4CAF50'}}>Bimoli</div>
@@ -25,17 +26,17 @@ function Screen1({ onNext }: { onNext: () => void }) {
                 <p style={{color:'white', fontWeight:700, fontSize:14}}>Bu Rina</p>
                 <p style={{color:'rgba(255,255,255,0.7)', fontSize:12}}>Warung Berkah Medan</p>
               </div>
-              <div style={{marginLeft:'auto', fontSize:28}}>📱</div>
+              <div style={{marginLeft:'auto'}}><Smartphone size={28} aria-hidden="true" /></div>
             </div>
           </div>
         </div>
         {/* Floating cards on photo */}
         <div className={styles.photoFloat1}>
-          <span>✅</span>
+          <span><Check size={20} aria-hidden="true" /></span>
           <p>Pesanan dari WA tercatat!</p>
         </div>
         <div className={styles.photoFloat2}>
-          <span>📊</span>
+          <span><ChartColumn size={20} aria-hidden="true" /></span>
           <p>Laba hari ini Rp1.227.000</p>
         </div>
       </div>
@@ -57,14 +58,14 @@ function Screen1({ onNext }: { onNext: () => void }) {
           Mulai →
         </button>
         <Link href="/dashboard" className={styles.loginLink}>
-          Saya sudah punya akun — Masuk
+          Saya sudah punya akun: Masuk
         </Link>
       </div>
     </div>
   );
 }
 
-// Screen 2 — Hubungkan WhatsApp
+// Screen 2: Hubungkan WhatsApp
 function Screen2({ onNext, onBack }: { onNext: () => void; onBack: () => void }) {
   const [phone, setPhone] = useState('');
   const [sent, setSent] = useState(false);
@@ -96,7 +97,7 @@ function Screen2({ onNext, onBack }: { onNext: () => void; onBack: () => void })
       </div>
 
       <div className={styles.screen2Content}>
-        <div className={styles.screen2Icon}>📱</div>
+        <div className={styles.screen2Icon}><Smartphone size={36} aria-hidden="true" /></div>
         <h2 className={styles.screen2Title}>Hubungkan WhatsApp Business</h2>
         <p className={styles.screen2Sub}>
           Masukkan nomor WA yang dipakai untuk bisnis warung Ibu. Kami akan kirim kode verifikasi.
@@ -107,7 +108,7 @@ function Screen2({ onNext, onBack }: { onNext: () => void; onBack: () => void })
           <input
             className={styles.phoneInput}
             type="tel"
-            placeholder="812-3456-7890"
+            placeholder="812 3456 7890"
             value={phone}
             onChange={e => setPhone(e.target.value.replace(/\D/g, ''))}
             id="phone-input"
@@ -115,7 +116,7 @@ function Screen2({ onNext, onBack }: { onNext: () => void; onBack: () => void })
         </div>
 
         <div className={styles.privacyNote}>
-          <span>🔒</span>
+          <span><LockKeyhole size={18} aria-hidden="true" /></span>
           <p>Kami hanya membaca pesan yang masuk ke nomor bisnis Ibu. WhatsApp pribadi tidak tersentuh.</p>
         </div>
 
@@ -131,37 +132,37 @@ function Screen2({ onNext, onBack }: { onNext: () => void; onBack: () => void })
           disabled={phone.length < 8}
           id="kirim-kode-btn"
         >
-          {sent ? '✅ Kode Terkirim!' : 'Kirim Kode →'}
+          {sent ? 'Kode Terkirim!' : 'Kirim Kode →'}
         </button>
       </div>
     </div>
   );
 }
 
-// Screen 3 — Siap Digunakan
+// Screen 3: Siap Digunakan
 function Screen3() {
   const chips = [
-    '🎤 Catat penjualan lewat suara',
-    '📸 Foto struk belanja',
-    '📊 Tanya laporan hari ini',
+    { label: 'Catat penjualan lewat suara', icon: Mic },
+    { label: 'Foto struk belanja', icon: Camera },
+    { label: 'Tanya laporan hari ini', icon: ChartColumn },
   ];
 
   return (
     <div className={styles.screen3}>
       <div className={styles.screen3Content}>
         <div className={styles.successCircle}>
-          <span className={styles.successCheck}>✓</span>
+          <span className={styles.successCheck}><Check size={28} aria-hidden="true" /></span>
         </div>
-        <h2 className={styles.screen3Title}>AI sudah siap membantu Ibu! 🎉</h2>
+        <h2 className={styles.screen3Title}>AI sudah siap membantu Ibu!</h2>
         <p className={styles.screen3Sub}>
-          WhatsApp bisnis Ibu sudah terhubung. Mulai kirim pesan atau coba fitur-fitur di bawah ini.
+          WhatsApp bisnis Ibu sudah terhubung. Mulai kirim pesan atau coba berbagai fitur di bawah ini.
         </p>
 
         <div className={styles.exampleChips}>
           <p className={styles.chipLabel}>Coba sekarang:</p>
           {chips.map((chip, i) => (
             <div key={i} className={styles.exampleChip}>
-              {chip}
+              <chip.icon size={18} aria-hidden="true" /> {chip.label}
               <span className={styles.chipArrow}>→</span>
             </div>
           ))}
@@ -172,7 +173,7 @@ function Screen3() {
         </Link>
 
         <Link href="/chat" className="btn btn-outline" style={{width:'100%', marginTop:10}} id="mulai-chat-btn">
-          💬 Mulai Chat dengan AI
+          <MessageCircle size={18} aria-hidden="true" /> Mulai Chat dengan AI
         </Link>
       </div>
     </div>

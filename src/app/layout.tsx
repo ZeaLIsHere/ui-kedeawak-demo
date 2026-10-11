@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "KedeAwak — AI Assistant untuk Warung Indonesia",
+  title: "KedeAwak: AI Assistant untuk Warung Indonesia",
   description:
     "Hubungkan WhatsApp Business warung Anda ke KedeAwak. Pesanan, chat pelanggan, dan bukti transfer otomatis tercatat. AI yang mencatat, Ibu tinggal terima hasilnya.",
   keywords: "warung, UMKM, AI assistant, WhatsApp business, pencatatan otomatis, Indonesia, Medan",
   openGraph: {
-    title: "KedeAwak — AI untuk Warung Indonesia",
+    title: "KedeAwak: AI untuk Warung Indonesia",
     description: "Catat otomatis lewat WhatsApp. AI yang kerja keras, Ibu tinggal lihat hasilnya.",
     locale: "id_ID",
     type: "website",

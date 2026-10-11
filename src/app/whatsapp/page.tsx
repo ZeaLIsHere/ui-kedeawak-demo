@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { Bot, Camera, Check, CheckCircle2, Inbox, LockKeyhole, Mail, Package, Settings, Trash2 } from 'lucide-react';
 import Sidebar from '@/components/layout/Sidebar';
 import TopBar from '@/components/layout/TopBar';
 import styles from './whatsapp.module.css';
@@ -65,10 +66,10 @@ const conversations = [
 
 const chatMessages = [
   { id: 1, from: 'customer', text: 'Bu, pesen telur 2 kg sama gula 1 kg ya', time: '14:28' },
-  { id: 2, from: 'ai', text: '✅ Pesanan Bu Dewi tercatat:\n• Telur 2 kg — Rp56.000\n• Gula 1 kg — Rp17.000\nTotal: Rp73.000\n\nSilakan transfer ke rek BRI 1234-5678-9012 a/n Warung Berkah, lalu kirim buktiny ya!', time: '14:28', isAI: true },
+  { id: 2, from: 'ai', text: 'Pesanan Bu Dewi tercatat:\n• Telur 2 kg: Rp56.000\n• Gula 1 kg: Rp17.000\nTotal: Rp73.000\n\nSilakan transfer ke rek BRI 1234-5678-9012 a/n Warung Berkah, lalu kirim buktiny ya!', time: '14:28', isAI: true },
   { id: 3, from: 'customer', text: 'Oke Bu, transfer dulu ya', time: '14:29' },
   { id: 4, from: 'customer', isPhoto: true, time: '14:31', photoCaption: 'bukti_transfer_bca.jpg' },
-  { id: 5, from: 'ai', text: '✅ Transfer Rp73.000 terdeteksi. Pesanan Bu Dewi lunas ya!', time: '14:32', isAI: true },
+  { id: 5, from: 'ai', text: 'Transfer Rp73.000 terdeteksi. Pesanan Bu Dewi lunas ya!', time: '14:32', isAI: true },
 ];
 
 type TabType = 'integrasi' | 'inbox';
@@ -94,14 +95,14 @@ export default function WhatsAppPage() {
                 onClick={() => setTab('integrasi')}
                 id="tab-integrasi"
               >
-                ⚙️ Integrasi WhatsApp
+                <Settings size={16} aria-hidden="true" /> Integrasi WhatsApp
               </button>
               <button
                 className={`${styles.tab} ${tab === 'inbox' ? styles.tabActive : ''}`}
                 onClick={() => setTab('inbox')}
                 id="tab-inbox"
               >
-                📬 Kotak Masuk
+                <Inbox size={16} aria-hidden="true" /> Kotak Masuk
                 <span className={styles.tabBadge}>3</span>
               </button>
             </div>
@@ -119,7 +120,7 @@ export default function WhatsAppPage() {
                     </svg>
                   </div>
                   <div>
-                    <p className={styles.connectedNum}>+62 812-3456-78xx</p>
+                    <p className={styles.connectedNum}>+62 812 3456 78xx</p>
                     <p className={styles.connectedSync}>Sinkronisasi terakhir 2 menit lalu</p>
                   </div>
                 </div>
@@ -135,7 +136,7 @@ export default function WhatsAppPage() {
                 <div className={styles.stepper}>
                   {['Masukkan nomor', 'Verifikasi kode', 'Selesai'].map((step, i) => (
                     <div key={i} className={styles.stepperItem}>
-                      <div className={`${styles.stepperDot} ${styles.stepperDone}`}>✓</div>
+                      <div className={`${styles.stepperDot} ${styles.stepperDone}`}><Check size={16} aria-hidden="true" /></div>
                       {i < 2 && <div className={`${styles.stepperLine} ${styles.stepperLineDone}`}/>}
                       <p className={styles.stepperLabel}>{step}</p>
                     </div>
@@ -190,25 +191,25 @@ export default function WhatsAppPage() {
 
               {/* Privacy panel */}
               <div className={`${styles.privacyCard} card`}>
-                <div className={styles.privacyIcon}>🔐</div>
+                <div className={styles.privacyIcon}><LockKeyhole size={24} aria-hidden="true" /></div>
                 <div className={styles.privacyText}>
                   <h3 className={styles.privacyTitle}>Privasi Terjaga</h3>
                   <p>Hanya pesan ke nomor bisnis ini yang diproses. WhatsApp pribadi Ibu tidak tersentuh.</p>
                 </div>
                 <button className="btn btn-danger btn-sm" id="delete-data-btn">
-                  🗑️ Hapus data pelanggan
+                  <Trash2 size={16} aria-hidden="true" /> Hapus data pelanggan
                 </button>
               </div>
 
               {/* Stats */}
               <div className={styles.statsRow}>
                 {[
-                  { icon: '📨', num: '1.284', label: 'Pesan masuk bulan ini' },
-                  { icon: '📦', num: '312', label: 'Pesanan tercatat' },
-                  { icon: '🤖', num: '689', label: 'Dibalas otomatis' },
+                  { icon: Mail, num: '1.284', label: 'Pesan masuk bulan ini' },
+                  { icon: Package, num: '312', label: 'Pesanan tercatat' },
+                  { icon: Bot, num: '689', label: 'Dibalas otomatis' },
                 ].map((stat, i) => (
                   <div key={i} className={`${styles.statCard} card`}>
-                    <span className={styles.statIcon}>{stat.icon}</span>
+                    <span className={styles.statIcon}><stat.icon size={24} aria-hidden="true" /></span>
                     <strong className={styles.statNum}>{stat.num}</strong>
                     <p className={styles.statLabel}>{stat.label}</p>
                   </div>
@@ -261,7 +262,7 @@ export default function WhatsAppPage() {
                   <div className={styles.convAvatar}>KD</div>
                   <div>
                     <p className={styles.threadName}>Kak Dewi</p>
-                    <p className={styles.threadPhone}>+62 812-8765-4321</p>
+                    <p className={styles.threadPhone}>+62 812 8765 4321</p>
                   </div>
                 </div>
                 <div className={styles.threadMessages}>
@@ -270,7 +271,7 @@ export default function WhatsAppPage() {
                       {msg.isPhoto ? (
                         <div className={styles.photoMsg}>
                           <div className={styles.photoThumb}>
-                            <span>📸</span>
+                            <span><Camera size={20} aria-hidden="true" /></span>
                             <span>{msg.photoCaption}</span>
                           </div>
                           <p className={styles.msgTime}>{msg.time}</p>
@@ -279,7 +280,7 @@ export default function WhatsAppPage() {
                         <div>
                           <p className={styles.msgText} style={{whiteSpace:'pre-line'}}>{msg.text}</p>
                           <div className={styles.msgMeta}>
-                            {msg.isAI && <span className={styles.aiTag}>🤖 Dibalas AI</span>}
+                            {msg.isAI && <span className={styles.aiTag}><Bot size={14} aria-hidden="true" /> Dibalas AI</span>}
                             <span className={styles.msgTime}>{msg.time}</span>
                           </div>
                         </div>
@@ -292,11 +293,11 @@ export default function WhatsAppPage() {
               {/* Right: AI summary panel */}
               <div className={`${styles.aiPanel} card`}>
                 <div className={styles.aiPanelHeader}>
-                  <h3 className={styles.cardTitle}>🤖 Ringkasan AI</h3>
+                  <h3 className={styles.cardTitle}><Bot size={18} aria-hidden="true" /> Ringkasan AI</h3>
                 </div>
                 <div className={styles.aiPanelContent}>
                   <div className={styles.orderDetected}>
-                    <p className={styles.orderTitle}>📦 Pesanan Terdeteksi</p>
+                    <p className={styles.orderTitle}><Package size={16} aria-hidden="true" /> Pesanan Terdeteksi</p>
                     <div className={styles.orderItems}>
                       <div className={styles.orderItem}>
                         <span>Telur Ayam 2 kg</span>
@@ -314,7 +315,7 @@ export default function WhatsAppPage() {
                   </div>
 
                   <div className={styles.paymentStatus}>
-                    <span className={styles.paymentCheck}>✓</span>
+                    <span className={styles.paymentCheck}><Check size={16} aria-hidden="true" /></span>
                     <div>
                       <p className={styles.paymentTitle}>Transfer Rp73.000 cocok</p>
                       <p className={styles.paymentSub}>Verifikasi AI berhasil</p>
@@ -331,7 +332,7 @@ export default function WhatsAppPage() {
                           onClick={() => setOrderConfirmed(true)}
                           id="confirm-order-btn"
                         >
-                          ✓ Konfirmasi Pesanan
+                          <Check size={16} aria-hidden="true" /> Konfirmasi Pesanan
                         </button>
                         <button className="btn btn-outline" style={{width:'100%'}} id="mark-paid-btn">
                           Tandai Lunas
@@ -339,7 +340,7 @@ export default function WhatsAppPage() {
                       </>
                     ) : (
                       <div style={{textAlign:'center', padding:16}}>
-                        <span style={{fontSize:36}}>✅</span>
+                        <CheckCircle2 size={36} aria-hidden="true" />
                         <p style={{fontWeight:700, color:'var(--color-primary)', marginTop:8}}>
                           Pesanan dikonfirmasi!
                         </p>

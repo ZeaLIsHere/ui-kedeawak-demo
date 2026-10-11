@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { Archive, BarChart3, Home, MessageCircle, Package, Settings, Smartphone, Users } from 'lucide-react';
 import styles from './Sidebar.module.css';
 
 interface SidebarProps {
@@ -9,14 +9,14 @@ interface SidebarProps {
 }
 
 const navItems = [
-  { id: 'beranda', label: 'Beranda', icon: '🏠', href: '/dashboard' },
-  { id: 'chat', label: 'Chat AI', icon: '💬', href: '/chat' },
-  { id: 'pesanan', label: 'Pesanan', icon: '📦', href: '/pesanan' },
-  { id: 'stok', label: 'Stok', icon: '🗃️', href: '/stok' },
-  { id: 'laporan', label: 'Laporan', icon: '📊', href: '/laporan' },
-  { id: 'pelanggan', label: 'Pelanggan', icon: '👥', href: '/pelanggan' },
-  { id: 'whatsapp', label: 'Integrasi WhatsApp', icon: '📱', href: '/whatsapp' },
-  { id: 'pengaturan', label: 'Pengaturan', icon: '⚙️', href: '/pengaturan' },
+  { id: 'beranda', label: 'Beranda', icon: Home, href: '/dashboard' },
+  { id: 'chat', label: 'Chat AI', icon: MessageCircle, href: '/chat' },
+  { id: 'pesanan', label: 'Pesanan', icon: Package, href: '/pesanan' },
+  { id: 'stok', label: 'Stok', icon: Archive, href: '/stok' },
+  { id: 'laporan', label: 'Laporan', icon: BarChart3, href: '/laporan' },
+  { id: 'pelanggan', label: 'Pelanggan', icon: Users, href: '/pelanggan' },
+  { id: 'whatsapp', label: 'Integrasi WhatsApp', icon: Smartphone, href: '/whatsapp' },
+  { id: 'pengaturan', label: 'Pengaturan', icon: Settings, href: '/pengaturan' },
 ];
 
 export default function Sidebar({ active = 'beranda' }: SidebarProps) {
@@ -39,7 +39,7 @@ export default function Sidebar({ active = 'beranda' }: SidebarProps) {
             href={item.href}
             className={`${styles.navItem} ${active === item.id ? styles.navItemActive : ''}`}
           >
-            <span className={styles.navIcon}>{item.icon}</span>
+            <span className={styles.navIcon}><item.icon size={20} aria-hidden="true" /></span>
             <span className={styles.navLabel}>{item.label}</span>
             {item.id === 'chat' && (
               <span className={styles.badge}>3</span>
@@ -50,7 +50,7 @@ export default function Sidebar({ active = 'beranda' }: SidebarProps) {
 
       <div className={styles.planCard}>
         <div className={styles.planHeader}>
-          <span className={styles.planBadge}>⭐ Paket Warung</span>
+          <span className={styles.planBadge}>Paket Warung</span>
         </div>
         <p className={styles.planUsage}>142 / 200 permintaan AI</p>
         <div className="progress-bar" style={{ marginTop: 8 }}>

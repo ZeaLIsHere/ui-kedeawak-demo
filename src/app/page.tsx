@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { AlertTriangle, Ban, Bot, Check, ClipboardList, FileText, LockKeyhole, MessageCircle, Mic, Package, Star, ShieldCheck, Smartphone, Trash2, Truck, Trophy, X } from 'lucide-react';
 import styles from './landing.module.css';
 
 // ─── Helper ──────────────────────────────────────────────────────────────────
@@ -46,7 +47,7 @@ function Hero() {
       <div className={styles.heroInner}>
         <div className={styles.heroLeft}>
           <span className={styles.heroPill}>
-            🚀 Baru di Medan — AI untuk Warung Indonesia
+            Baru di Medan: AI untuk Warung Indonesia
           </span>
           <h1 className={styles.heroHeadline}>
             WhatsApp warung Ibu,{' '}
@@ -106,7 +107,7 @@ function Hero() {
                       <p className={styles.ownerName}>Bu Rina</p>
                       <p className={styles.ownerShop}>Warung Berkah Medan</p>
                     </div>
-                    <div className={styles.ownerPhone}>📱</div>
+                    <div className={styles.ownerPhone}><Smartphone size={24} aria-hidden="true" /></div>
                   </div>
                 </div>
               </div>
@@ -145,17 +146,17 @@ function Hero() {
 
             {/* Floating cards */}
             <div className={`${styles.floatingCard} ${styles.floatingCard1}`}>
-              <div className={styles.floatingCardIcon}>📦</div>
+              <div className={styles.floatingCardIcon}><Package size={24} aria-hidden="true" /></div>
               <div>
                 <p className={styles.floatingCardTitle}>Pesanan baru dari WhatsApp</p>
-                <p className={styles.floatingCardSub}>Telur 2 kg + Gula 1 kg — Rp73.000</p>
+                <p className={styles.floatingCardSub}>Telur 2 kg + Gula 1 kg: Rp73.000</p>
               </div>
             </div>
             <div className={`${styles.floatingCard} ${styles.floatingCard2}`}>
-              <div className={styles.floatingCardIcon}>⚠️</div>
+              <div className={styles.floatingCardIcon}><AlertTriangle size={24} aria-hidden="true" /></div>
               <div>
                 <p className={styles.floatingCardTitle}>Stok Gula menipis</p>
-                <p className={styles.floatingCardSub}>Sisa 4 kg — habis dalam 2 hari</p>
+                <p className={styles.floatingCardSub}>Sisa 4 kg, habis dalam 2 hari</p>
               </div>
             </div>
           </div>
@@ -169,19 +170,19 @@ function Hero() {
 function ProblemStrip() {
   const stats = [
     {
-      icon: '🤖',
+      icon: Bot,
       number: '90%',
       label: 'UMKM belum memakai AI',
       source: 'Sumber: McKinsey Indonesia SME Report 2025',
     },
     {
-      icon: '📒',
+      icon: ClipboardList,
       number: '3,5%',
       label: 'UMKM punya laporan keuangan',
       source: 'Sumber: Bank Indonesia Financial Inclusion Survey',
     },
     {
-      icon: '📱',
+      icon: Smartphone,
       number: '7 dari 10',
       label: 'Pemilik warung berhenti pakai aplikasi pencatatan dalam 2 minggu',
       source: 'Sumber: Penelitian UX Warung Digital Medan 2025',
@@ -194,7 +195,7 @@ function ProblemStrip() {
         <div className={styles.problemGrid}>
           {stats.map((s, i) => (
             <div key={i} className={styles.problemCard}>
-              <span className={styles.problemIcon}>{s.icon}</span>
+              <span className={styles.problemIcon}><s.icon size={28} aria-hidden="true" /></span>
               <strong className={styles.problemNumber}>{s.number}</strong>
               <p className={styles.problemLabel}>{s.label}</p>
               <p className={styles.problemSource}>{s.source}</p>
@@ -213,19 +214,19 @@ function HowItWorks() {
       num: '1',
       title: 'Hubungkan nomor WhatsApp Business',
       desc: 'Masukkan nomor WA bisnis warung Ibu. Verifikasi dengan kode OTP. Selesai dalam 2 menit.',
-      icon: '📱',
+      icon: Smartphone,
     },
     {
       num: '2',
       title: 'AI mencatat otomatis dari teks, suara, dan foto struk',
       desc: 'Pelanggan chat pesan? Ibu kirim voice note penjualan? Foto struk belanja? Semua otomatis terbaca dan tercatat.',
-      icon: '🤖',
+      icon: Bot,
     },
     {
       num: '3',
       title: 'Lihat laporan dan setujui aksi AI',
       desc: 'Ibu tinggal buka aplikasi, lihat ringkasan, dan setujui atau ubah saran AI. Selalu ada kontrol di tangan Ibu.',
-      icon: '✅',
+      icon: Check,
     },
   ];
   return (
@@ -241,7 +242,7 @@ function HowItWorks() {
             <div key={i} className={styles.stepItem}>
               <div className={styles.stepNumber}>{step.num}</div>
               {i < steps.length - 1 && <div className={styles.stepLine}/>}
-              <div className={styles.stepIcon}>{step.icon}</div>
+              <div className={styles.stepIcon}><step.icon size={28} aria-hidden="true" /></div>
               <h3 className={styles.stepTitle}>{step.title}</h3>
               <p className={styles.stepDesc}>{step.desc}</p>
             </div>
@@ -256,37 +257,37 @@ function HowItWorks() {
 function FeaturesGrid() {
   const features = [
     {
-      icon: '📱',
+      icon: Smartphone,
       title: 'Integrasi WhatsApp ke Aplikasi',
       desc: 'Semua pesan WA bisnis masuk langsung ke dashboard. Tidak ada yang terlewat.',
       badge: 'WhatsApp',
     },
     {
-      icon: '🎤',
+      icon: Mic,
       title: 'Catat dari Suara dan Foto Struk',
-      desc: 'Kirim voice note atau foto struk belanja — AI langsung baca dan catat hasilnya.',
+      desc: 'Kirim voice note atau foto struk belanja, AI langsung baca dan catat hasilnya.',
       badge: 'AI OCR',
     },
     {
-      icon: '⚠️',
+      icon: AlertTriangle,
       title: 'Alert Stok Menipis',
       desc: 'AI pantau stok dan ingatkan Ibu sebelum barang habis. Tidak perlu cek manual.',
       badge: 'Smart Alert',
     },
     {
-      icon: '💬',
+      icon: MessageCircle,
       title: 'Balas Pelanggan 24 Jam',
-      desc: 'Pertanyaan umum pelanggan dijawab otomatis — jam berapapun, tanpa Ibu online.',
+      desc: 'Pertanyaan umum pelanggan dijawab otomatis, jam berapapun, tanpa Ibu online.',
       badge: '24 Jam',
     },
     {
-      icon: '📊',
+      icon: FileText,
       title: 'Laporan Keuangan Sekali Tanya',
-      desc: 'Ketik "laporan hari ini" di chat — AI kirim ringkasan penjualan, laba, dan pengeluaran.',
+      desc: 'Ketik "laporan hari ini" di chat, AI kirim ringkasan penjualan, laba, dan pengeluaran.',
       badge: 'AI Chat',
     },
     {
-      icon: '🚚',
+      icon: Truck,
       title: 'Pesan Barang ke Supplier',
       desc: 'AI buat draft pesanan ke supplier berdasarkan stok. Ibu tinggal setujui dan kirim via WA.',
       badge: 'Otomatis',
@@ -304,7 +305,7 @@ function FeaturesGrid() {
           {features.map((f, i) => (
             <div key={i} className={styles.featureCard}>
               <div className={styles.featureTop}>
-                <div className={styles.featureIcon}>{f.icon}</div>
+                <div className={styles.featureIcon}><f.icon size={28} aria-hidden="true" /></div>
                 <span className={`badge badge-green`}>{f.badge}</span>
               </div>
               <h3 className={styles.featureTitle}>{f.title}</h3>
@@ -336,7 +337,7 @@ function ChatDemo() {
                 <div className={styles.cdMsgOwner}>Laporan hari ini</div>
                 <div className={styles.cdMsgAI}>
                   <div className={styles.cdSummaryCard}>
-                    <p className={styles.cdSummaryTitle}>📊 Ringkasan Hari Ini — Minggu, 11 Okt</p>
+                    <p className={styles.cdSummaryTitle}>Ringkasan Hari Ini: Minggu, 11 Okt</p>
                     <div className={styles.cdSummaryRow}>
                       <span>Penjualan</span>
                       <strong className="money" style={{color:'var(--color-primary)'}}>Rp1.842.000</strong>
@@ -359,12 +360,12 @@ function ChatDemo() {
             <span className={styles.sectionPill}>Demo Chat AI</span>
             <h2 className={styles.sectionTitle} style={{marginTop:12}}>Cukup tanya,<br/>AI yang menghitung.</h2>
             <p className={styles.chatDemoSub}>
-              Tidak perlu buka menu berlapis atau isi formulir rumit. Cukup kirim pesan ke AI seperti chatting biasa — AI langsung jawab dengan data warung Ibu yang sebenarnya.
+              Tidak perlu buka menu berlapis atau isi formulir rumit. Cukup kirim pesan ke AI seperti chatting biasa, AI langsung jawab dengan data warung Ibu yang sebenarnya.
             </p>
             <div className={styles.chatDemoPoints}>
               <div className={styles.chatDemoPoint}>
                 <div className={styles.chatDemoDot}/>
-                <span>Tanya dalam bahasa sehari-hari</span>
+                <span>Tanya dalam bahasa percakapan</span>
               </div>
               <div className={styles.chatDemoPoint}>
                 <div className={styles.chatDemoDot}/>
@@ -407,7 +408,7 @@ function ComparisonTable() {
                 <th className={styles.compFeatureCol}>Fitur</th>
                 <th className={styles.compHighlightCol}>
                   <div className={styles.compHighlightBadge}>
-                    <span>🏆</span> KedeAwak
+                    <Trophy size={18} aria-hidden="true" /> KedeAwak
                   </div>
                 </th>
                 <th>BukuWarung</th>
@@ -422,8 +423,8 @@ function ComparisonTable() {
                   <td className={styles.compHighlightCell}>
                     {typeof row.kedeawak === 'boolean' ? (
                       row.kedeawak
-                        ? <span className={styles.checkYes}>✓</span>
-                        : <span className={styles.checkNo}>—</span>
+                        ? <span className={styles.checkYes}><Check size={16} aria-label="Tersedia" /></span>
+                        : <span className={styles.checkNo}><X size={16} aria-label="Tidak tersedia" /></span>
                     ) : (
                       <strong style={{color:'var(--color-primary)'}}>{row.kedeawak}</strong>
                     )}
@@ -432,8 +433,8 @@ function ComparisonTable() {
                     <td key={key} className={styles.compCell}>
                       {typeof row[key as keyof typeof row] === 'boolean' ? (
                         row[key as keyof typeof row]
-                          ? <span className={styles.checkYes}>✓</span>
-                          : <span className={styles.checkNo}>—</span>
+                          ? <span className={styles.checkYes}><Check size={16} aria-label="Tersedia" /></span>
+                          : <span className={styles.checkNo}><X size={16} aria-label="Tidak tersedia" /></span>
                       ) : (
                         <span style={{color:'var(--color-text-secondary)'}}>{String(row[key as keyof typeof row])}</span>
                       )}
@@ -455,21 +456,21 @@ function Testimonials() {
     {
       avatar: 'SR',
       name: 'Ibu Sri Wahyuni',
-      shop: 'Warung Sri — Medan Petisah',
+      shop: 'Warung Sri, Medan Petisah',
       quote: 'Dulu saya catat di buku terus lupa. Sekarang tinggal voice note, langsung masuk semua. Cocok banget buat saya yang gaptek.',
       rating: 5,
     },
     {
       avatar: 'PH',
       name: 'Pak Hotman Siregar',
-      shop: 'Toko Hotman — Binjai',
+      shop: 'Toko Hotman, Binjai',
       quote: 'Pesanan WhatsApp dulu sering ketinggalan. Sekarang semuanya ada di satu tempat. Omset naik 20% bulan pertama.',
       rating: 5,
     },
     {
       avatar: 'KD',
       name: 'Kak Dewi Anggraini',
-      shop: 'Toko Online Dewi — Deli Serdang',
+      shop: 'Toko Online Dewi, Deli Serdang',
       quote: 'Saya jual online lewat WA. KedeAwak bantu saya balas pelanggan otomatis waktu tidur. Pelanggan senang, saya juga!',
       rating: 5,
     },
@@ -486,7 +487,7 @@ function Testimonials() {
           {testimonials.map((t, i) => (
             <div key={i} className={styles.testimonialCard}>
               <div className={styles.testimonialStars}>
-                {'★'.repeat(t.rating)}
+                {Array.from({ length: t.rating }, (_, i) => <Star key={i} size={16} fill="currentColor" aria-hidden="true" />)}
               </div>
               <p className={styles.testimonialQuote}>"{t.quote}"</p>
               <div className={styles.testimonialAuthor}>
@@ -587,13 +588,13 @@ function Pricing() {
               <ul className={styles.pricingFeatures}>
                 {plan.features.map((f, j) => (
                   <li key={j} className={styles.pricingFeatureItem}>
-                    <span className={styles.featureCheck}>✓</span>
+                    <span className={styles.featureCheck}><Check size={16} aria-hidden="true" /></span>
                     {f}
                   </li>
                 ))}
                 {plan.notIncluded.map((f, j) => (
                   <li key={`no-${j}`} className={`${styles.pricingFeatureItem} ${styles.pricingFeatureNo}`}>
-                    <span className={styles.featureCross}>—</span>
+                    <span className={styles.featureCross}><X size={16} aria-label="Tidak termasuk" /></span>
                     {f}
                   </li>
                 ))}
@@ -617,10 +618,10 @@ function Pricing() {
 // ─── Privacy ──────────────────────────────────────────────────────────────────
 function PrivacyBand() {
   const points = [
-    { icon: '📱', text: 'Hanya nomor WhatsApp Business warung yang terhubung' },
-    { icon: '🔒', text: 'Data dienkripsi end-to-end' },
-    { icon: '🚫', text: 'Tidak dibagikan ke pihak ketiga' },
-    { icon: '🗑️', text: 'Bisa dihapus kapan saja' },
+    { icon: Smartphone, text: 'Hanya nomor WhatsApp Business warung yang terhubung' },
+    { icon: LockKeyhole, text: 'Data dienkripsi dari ujung ke ujung' },
+    { icon: Ban, text: 'Tidak dibagikan ke pihak ketiga' },
+    { icon: Trash2, text: 'Bisa dihapus kapan saja' },
   ];
 
   return (
@@ -628,14 +629,14 @@ function PrivacyBand() {
       <div className="container">
         <div className={styles.privacyInner}>
           <div className={styles.privacyLeft}>
-            <span className={styles.privacyLock}>🔐</span>
+            <span className={styles.privacyLock}><ShieldCheck size={32} aria-hidden="true" /></span>
             <h2 className={styles.privacyTitle}>Data pelanggan Ibu aman</h2>
             <p className={styles.privacyDesc}>Privasi adalah hak, bukan fitur tambahan.</p>
           </div>
           <div className={styles.privacyPoints}>
             {points.map((p, i) => (
               <div key={i} className={styles.privacyPoint}>
-                <span className={styles.privacyPointIcon}>{p.icon}</span>
+                <span className={styles.privacyPointIcon}><p.icon size={20} aria-hidden="true" /></span>
                 <span>{p.text}</span>
               </div>
             ))}
@@ -652,11 +653,11 @@ function FAQ() {
   const faqs = [
     {
       q: 'Apakah saya harus ganti nomor WhatsApp?',
-      a: 'Tidak perlu. Ibu tetap pakai nomor WhatsApp Business yang sama. KedeAwak hanya membaca pesan yang masuk ke nomor bisnis itu — WhatsApp pribadi tidak tersentuh sama sekali.',
+      a: 'Tidak perlu. Ibu tetap pakai nomor WhatsApp Business yang sama. KedeAwak hanya membaca pesan yang masuk ke nomor bisnis itu. WhatsApp pribadi tidak tersentuh sama sekali.',
     },
     {
       q: 'Bagaimana AI membaca voice note dan foto struk?',
-      a: 'AI kami menggunakan teknologi speech-to-text dan OCR (optical character recognition). Voice note diubah jadi teks, lalu angkanya diekstrak. Foto struk dibaca dan total belanja dikenali otomatis.',
+      a: 'AI kami menggunakan teknologi speech to text dan OCR (optical character recognition). Voice note diubah jadi teks, lalu angkanya diekstrak. Foto struk dibaca dan total belanja dikenali otomatis.',
     },
     {
       q: 'Apakah data transaksi saya aman?',
@@ -664,7 +665,7 @@ function FAQ() {
     },
     {
       q: 'Bagaimana cara AI membalas pelanggan?',
-      a: 'Ibu bisa atur template jawaban untuk pertanyaan umum seperti jam buka, daftar produk, atau konfirmasi pesanan. AI hanya balas berdasarkan template yang Ibu setujui — tidak pernah improvisasi di luar itu.',
+      a: 'Ibu bisa atur template jawaban untuk pertanyaan umum seperti jam buka, daftar produk, atau konfirmasi pesanan. AI hanya balas berdasarkan template yang Ibu setujui, tidak pernah improvisasi di luar itu.',
     },
     {
       q: 'Apakah bisa dipakai di HP biasa?',
@@ -745,7 +746,7 @@ function Footer() {
             <p className={styles.footerDesc}>
               AI assistant untuk warung dan toko Indonesia. Catat otomatis lewat WhatsApp, AI yang kerja keras.
             </p>
-            <p className={styles.footerMade}>🇮🇩 Dibuat di Medan, untuk UMKM Indonesia</p>
+            <p className={styles.footerMade}>Dibuat di Medan, untuk UMKM Indonesia</p>
           </div>
 
           <div className={styles.footerCol}>
@@ -766,7 +767,7 @@ function Footer() {
             <a href="#">Pusat Bantuan</a>
             <a href="#">Status Layanan</a>
             <a href="https://wa.me/6281234567890">
-              💬 WhatsApp Support
+              <MessageCircle size={16} aria-hidden="true" /> WhatsApp Support
             </a>
           </div>
         </div>

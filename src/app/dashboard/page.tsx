@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { Bot, Camera, CheckCircle2, Mic, Package, PenLine, ShoppingCart, Smartphone, TrendingUp, Wallet } from 'lucide-react';
 import {
   AreaChart,
   Area,
@@ -27,28 +28,28 @@ function KPICards() {
       label: 'Penjualan Hari Ini',
       value: d.kpi.penjualanHariIni,
       change: d.kpi.penjualanChange,
-      icon: '💰',
+      icon: <Wallet size={24} aria-hidden="true" />,
       positive: true,
     },
     {
       label: 'Pengeluaran',
       value: d.kpi.pengeluaran,
       change: d.kpi.pengeluaranChange,
-      icon: '🛒',
+      icon: <ShoppingCart size={24} aria-hidden="true" />,
       positive: false,
     },
     {
       label: 'Laba Bersih',
       value: d.kpi.labaBersih,
       change: d.kpi.labaChange,
-      icon: '📈',
+      icon: <TrendingUp size={24} aria-hidden="true" />,
       positive: true,
     },
     {
       label: 'Pesanan Baru',
       value: d.kpi.pesananBaru,
       change: null,
-      icon: '📦',
+      icon: <Package size={24} aria-hidden="true" />,
       positive: true,
       sub: `${d.kpi.pesananWhatsApp} dari WhatsApp`,
     },
@@ -112,7 +113,7 @@ function SalesChart() {
       <div className={styles.cardHeader}>
         <div>
           <h3 className={styles.cardTitle}>Penjualan 7 Hari Terakhir</h3>
-          <p className={styles.cardSub}>5 Okt — 11 Okt 2026</p>
+          <p className={styles.cardSub}>5 Okt sampai 11 Okt 2026</p>
         </div>
         <div className={styles.chartLegend}>
           <span className={styles.legendItem}>
@@ -199,7 +200,7 @@ function StockAlert() {
     <div className={`${styles.alertCard}`} style={{background:'#FFFBF0', border:'1px solid #F5A524', borderRadius:'var(--radius-card)'}}>
       <div className={styles.cardHeader}>
         <div>
-          <h3 className={styles.cardTitle} style={{color:'#B07B10'}}>⚠️ Stok Menipis</h3>
+          <h3 className={styles.cardTitle} style={{color:'#B07B10'}}>Stok Menipis</h3>
           <p className={styles.cardSub}>3 produk perlu segera diisi</p>
         </div>
         <button className="btn btn-sm" style={{background:'var(--color-accent)', color:'#fff', border:'none', minHeight:36}}>
@@ -233,7 +234,7 @@ function AISuggestion() {
   if (approved) {
     return (
       <div className={`${styles.aiCard} card`} style={{textAlign:'center', padding:24}}>
-        <span style={{fontSize:40}}>✅</span>
+        <CheckCircle2 size={40} aria-hidden="true" style={{color:'var(--color-primary)'}} />
         <p style={{fontWeight:700, color:'var(--color-primary)', marginTop:8}}>Pesanan disetujui!</p>
         <p style={{fontSize:13, color:'var(--color-text-secondary)'}}>Draft pesanan dikirim ke Toko Grosir Sinar via WhatsApp</p>
       </div>
@@ -243,7 +244,7 @@ function AISuggestion() {
   return (
     <div className={`${styles.aiCard} card`}>
       <div className={styles.aiCardHeader}>
-        <span className={styles.aiChip}>🤖 Saran AI</span>
+        <span className={styles.aiChip}><Bot size={16} aria-hidden="true" /> Saran AI</span>
       </div>
       <p className={styles.aiText}>
         AI menyiapkan draft pesanan ke{' '}
@@ -269,7 +270,7 @@ function AISuggestion() {
       </div>
       <div className={styles.aiActions}>
         <button className="btn btn-primary" onClick={() => setApproved(true)} id="ai-approve-btn">
-          ✓ Setujui
+          Setujui
         </button>
         <button className="btn btn-ghost">Ubah</button>
       </div>
@@ -285,11 +286,11 @@ function TransactionTable() {
     'Foto Struk': 'var(--color-accent)',
     'Manual': 'var(--color-text-muted)',
   };
-  const sourceEmoji: Record<string, string> = {
-    'WhatsApp': '📱',
-    'Suara': '🎤',
-    'Foto Struk': '📸',
-    'Manual': '✍️',
+  const sourceIcons: Record<string, React.ReactNode> = {
+    'WhatsApp': <Smartphone size={14} aria-hidden="true" />,
+    'Suara': <Mic size={14} aria-hidden="true" />,
+    'Foto Struk': <Camera size={14} aria-hidden="true" />,
+    'Manual': <PenLine size={14} aria-hidden="true" />,
   };
 
   return (
@@ -316,7 +317,7 @@ function TransactionTable() {
                 <td className={styles.tdDesc}>{tx.description}</td>
                 <td>
                   <span className={styles.sourceChip}>
-                    <span>{sourceEmoji[tx.source]}</span>
+                    <span>{sourceIcons[tx.source]}</span>
                     {tx.source}
                   </span>
                 </td>

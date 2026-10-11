@@ -11,7 +11,7 @@ export const stokData = {
       id: 1,
       name: "Indomie Goreng",
       category: "Makanan",
-      emoji: "🍜",
+
       stok: 12,
       min: 24,
       harga: 3500,
@@ -22,7 +22,7 @@ export const stokData = {
       id: 2,
       name: "Gula Pasir 1 kg",
       category: "Bahan Pokok",
-      emoji: "🧂",
+
       stok: 4,
       min: 10,
       harga: 17000,
@@ -33,7 +33,7 @@ export const stokData = {
       id: 3,
       name: "Minyak Goreng Bimoli 2 L",
       category: "Bahan Pokok",
-      emoji: "🫙",
+
       stok: 3,
       min: 8,
       harga: 38000,
@@ -44,7 +44,7 @@ export const stokData = {
       id: 4,
       name: "Aqua 600 ml",
       category: "Minuman",
-      emoji: "💧",
+
       stok: 36,
       min: 24,
       harga: 4000,
@@ -55,7 +55,7 @@ export const stokData = {
       id: 5,
       name: "Beras 5 kg",
       category: "Bahan Pokok",
-      emoji: "🌾",
+
       stok: 8,
       min: 5,
       harga: 72000,
@@ -66,7 +66,7 @@ export const stokData = {
       id: 6,
       name: "Kopi Kapal Api",
       category: "Minuman",
-      emoji: "☕",
+
       stok: 48,
       min: 30,
       harga: 2000,
@@ -77,7 +77,7 @@ export const stokData = {
       id: 7,
       name: "Telur Ayam 1 kg",
       category: "Bahan Pokok",
-      emoji: "🥚",
+
       stok: 0,
       min: 10,
       harga: 28000,
@@ -88,7 +88,7 @@ export const stokData = {
       id: 8,
       name: "Teh Botol Sosro",
       category: "Minuman",
-      emoji: "🍵",
+
       stok: 18,
       min: 24,
       harga: 5500,
@@ -98,7 +98,7 @@ export const stokData = {
   ],
   supplierDraft: {
     supplier: "Toko Grosir Sinar",
-    phone: "+62 812-9876-5432",
+    phone: "+62 812 9876 5432",
     items: [
       { name: "Gula Pasir", qty: 20, unit: "kg", harga: 16500, total: 330000 },
       { name: "Minyak Goreng Bimoli", qty: 12, unit: "L", harga: 37000, total: 444000 },
@@ -113,7 +113,7 @@ export const stokData = {
 export const laporanData = {
   period: {
     label: "Mingguan",
-    range: "5 Okt – 11 Okt 2026",
+    range: "5 Okt sampai 11 Okt 2026",
   },
   summary: {
     pendapatan: 12480000,
@@ -141,11 +141,11 @@ export const laporanData = {
     { name: "Lainnya", value: 16, color: "#E8E4DD", amount: 1266400 },
   ],
   topProducts: [
-    { name: "Indomie Goreng", qty: 284, revenue: 994000, emoji: "🍜" },
-    { name: "Aqua 600 ml", qty: 192, revenue: 768000, emoji: "💧" },
-    { name: "Gula Pasir 1 kg", qty: 67, revenue: 1139000, emoji: "🧂" },
-    { name: "Beras 5 kg", qty: 23, revenue: 1656000, emoji: "🌾" },
-    { name: "Minyak Goreng Bimoli", qty: 18, revenue: 684000, emoji: "🫙" },
+    { name: "Indomie Goreng", qty: 284, revenue: 994000 },
+    { name: "Aqua 600 ml", qty: 192, revenue: 768000 },
+    { name: "Gula Pasir 1 kg", qty: 67, revenue: 1139000 },
+    { name: "Beras 5 kg", qty: 23, revenue: 1656000 },
+    { name: "Minyak Goreng Bimoli", qty: 18, revenue: 684000 },
   ],
   sumberPencatatan: [
     { source: "WhatsApp", pct: 54, color: "#128C5A" },
@@ -157,7 +157,7 @@ export const laporanData = {
     score: 82,
     insights: [
       "Margin laba 36,6% sudah lebih baik dari rata-rata warung sejenis (25%).",
-      "Pengeluaran stok turun 5% minggu ini — bagus! Pertahankan pola beli sesuai permintaan.",
+      "Pengeluaran stok turun 5% minggu ini. Bagus! Pertahankan pola beli sesuai permintaan.",
       "Piutang pelanggan Rp385.000 belum tertagih. Coba kirim pengingat via WhatsApp.",
     ],
   },

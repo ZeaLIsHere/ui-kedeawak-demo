@@ -6,12 +6,12 @@ import TopBar from '@/components/layout/TopBar';
 
 export default function PelangganPage() {
   const pelanggan = [
-    { initials: 'KD', name: 'Kak Dewi Anggraini', phone: '+62 812-8765-4321', orders: 14, total: 1042000, lastOrder: '11 Okt 2026' },
-    { initials: 'PB', name: 'Pak Budi Lubis', phone: '+62 813-5678-9012', orders: 8, total: 584000, lastOrder: '10 Okt 2026' },
-    { initials: 'IS', name: 'Ibu Sri Wahyuni', phone: '+62 819-2345-6789', orders: 22, total: 1820000, lastOrder: '11 Okt 2026' },
-    { initials: 'BA', name: 'Bang Andi', phone: '+62 815-6789-0123', orders: 6, total: 420000, lastOrder: '9 Okt 2026' },
-    { initials: 'PH', name: 'Pak Hotman Siregar', phone: '+62 812-3456-7890', orders: 11, total: 924000, lastOrder: '8 Okt 2026' },
-    { initials: 'ND', name: 'Nita Dewi', phone: '+62 818-9012-3456', orders: 5, total: 385000, lastOrder: '7 Okt 2026' },
+    { initials: 'KD', name: 'Kak Dewi Anggraini', phone: '+62 812 8765 4321', orders: 14, total: 1042000, lastOrder: '11 Okt 2026' },
+    { initials: 'PB', name: 'Pak Budi Lubis', phone: '+62 813 5678 9012', orders: 8, total: 584000, lastOrder: '10 Okt 2026' },
+    { initials: 'IS', name: 'Ibu Sri Wahyuni', phone: '+62 819 2345 6789', orders: 22, total: 1820000, lastOrder: '11 Okt 2026' },
+    { initials: 'BA', name: 'Bang Andi', phone: '+62 815 6789 0123', orders: 6, total: 420000, lastOrder: '9 Okt 2026' },
+    { initials: 'PH', name: 'Pak Hotman Siregar', phone: '+62 812 3456 7890', orders: 11, total: 924000, lastOrder: '8 Okt 2026' },
+    { initials: 'ND', name: 'Nita Dewi', phone: '+62 818 9012 3456', orders: 5, total: 385000, lastOrder: '7 Okt 2026' },
   ];
 
   return (

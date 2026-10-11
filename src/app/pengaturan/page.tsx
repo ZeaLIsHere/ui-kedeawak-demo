@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { Bell, UserRound, Star } from 'lucide-react';
 import Sidebar from '@/components/layout/Sidebar';
 import TopBar from '@/components/layout/TopBar';
 
@@ -29,7 +30,7 @@ export default function PengaturanPage() {
           {/* Profil */}
           <div className="card" style={{ padding: 24, marginBottom: 20 }}>
             <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 16, fontWeight: 700, marginBottom: 20, color: 'var(--color-text-primary)' }}>
-              👤 Profil Warung
+              <UserRound size={18} aria-hidden="true" /> Profil Warung
             </h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               <div>
@@ -66,7 +67,7 @@ export default function PengaturanPage() {
           {/* Notifikasi */}
           <div className="card" style={{ padding: 24, marginBottom: 20 }}>
             <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 16, fontWeight: 700, marginBottom: 20, color: 'var(--color-text-primary)' }}>
-              🔔 Notifikasi
+              <Bell size={18} aria-hidden="true" /> Notifikasi
             </h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
               {[
@@ -92,7 +93,7 @@ export default function PengaturanPage() {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div>
                 <span style={{ display: 'inline-block', background: 'var(--color-primary-light)', color: 'var(--color-primary-dark)', fontSize: 12, fontWeight: 700, padding: '3px 12px', borderRadius: 999, marginBottom: 8 }}>
-                  ⭐ Paket Warung
+                  <Star size={14} aria-hidden="true" /> Paket Warung
                 </span>
                 <p style={{ fontSize: 14, fontWeight: 700, color: 'var(--color-text-primary)' }}>Aktif hingga 11 Nov 2026</p>
                 <p style={{ fontSize: 12, color: 'var(--color-text-muted)', marginTop: 2 }}>Rp19.900/bulan · 142/200 permintaan AI digunakan</p>
@@ -107,7 +108,7 @@ export default function PengaturanPage() {
             id="save-settings-btn"
             style={{ minWidth: 160 }}
           >
-            {saved ? '✅ Tersimpan!' : 'Simpan Perubahan'}
+            {saved ? 'Tersimpan!' : 'Simpan Perubahan'}
           </button>
         </div>
       </div>

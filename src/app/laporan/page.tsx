@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { CalendarDays, ChartColumn, ChartNoAxesCombined, FileText, HeartPulse, Package, ShoppingCart, Smartphone, Trophy, Wallet } from 'lucide-react';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend,
   PieChart, Pie, Cell,
@@ -53,7 +54,7 @@ export default function LaporanPage() {
                   </button>
                 ))}
               </div>
-              <span className={styles.dateRange}>📅 {d.period.range}</span>
+              <span className={styles.dateRange}><CalendarDays size={16} aria-hidden="true" /> {d.period.range}</span>
             </div>
             <button className="btn btn-outline" id="download-pdf-btn">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -68,14 +69,14 @@ export default function LaporanPage() {
           {/* Summary KPI */}
           <div className={styles.summaryRow}>
             {[
-              { label: 'Pendapatan', value: d.summary.pendapatan, change: d.summary.pendapatanChange, color: 'var(--color-primary)', icon: '💰' },
-              { label: 'Pengeluaran', value: d.summary.pengeluaran, change: d.summary.pengeluaranChange, color: 'var(--color-danger)', icon: '🛒' },
-              { label: 'Laba', value: d.summary.laba, change: d.summary.labaChange, color: 'var(--color-primary-dark)', icon: '📈' },
-              { label: 'Margin', value: null, margin: d.summary.margin, change: d.summary.marginChange, color: 'var(--color-info)', icon: '📊' },
+              { label: 'Pendapatan', value: d.summary.pendapatan, change: d.summary.pendapatanChange, color: 'var(--color-primary)', icon: Wallet },
+              { label: 'Pengeluaran', value: d.summary.pengeluaran, change: d.summary.pengeluaranChange, color: 'var(--color-danger)', icon: ShoppingCart },
+              { label: 'Laba', value: d.summary.laba, change: d.summary.labaChange, color: 'var(--color-primary-dark)', icon: ChartNoAxesCombined },
+              { label: 'Margin', value: null, margin: d.summary.margin, change: d.summary.marginChange, color: 'var(--color-info)', icon: ChartColumn },
             ].map((card, i) => (
               <div key={i} className={`${styles.kpiCard} card`}>
                 <div className={styles.kpiTop}>
-                  <span>{card.icon}</span>
+                  <span><card.icon size={20} aria-hidden="true" /></span>
                   <span className={`badge ${card.change >= 0 ? 'badge-green' : 'badge-red'}`}>
                     {card.change >= 0 ? '↑' : '↓'} {Math.abs(card.change)}%
                   </span>
@@ -95,7 +96,7 @@ export default function LaporanPage() {
             <div className={`${styles.chartCard} card`}>
               <div className={styles.chartHeader}>
                 <h3 className={styles.chartTitle}>Pendapatan vs Pengeluaran</h3>
-                <p className={styles.chartSub}>{period} — {d.period.range}</p>
+                <p className={styles.chartSub}>{period}: {d.period.range}</p>
               </div>
               <ResponsiveContainer width="100%" height={240}>
                 <BarChart data={d.dailyChart} margin={{ top: 8, right: 8, left: 8, bottom: 0 }} barGap={4}>
@@ -143,13 +144,13 @@ export default function LaporanPage() {
             {/* Top products */}
             <div className={`${styles.topProductsCard} card`}>
               <div className={styles.chartHeader}>
-                <h3 className={styles.chartTitle}>🏆 Produk Terlaris</h3>
+                <h3 className={styles.chartTitle}><Trophy size={18} aria-hidden="true" /> Produk Terlaris</h3>
               </div>
               <div className={styles.productList}>
                 {d.topProducts.map((p, i) => (
                   <div key={i} className={styles.productRow}>
                     <span className={styles.productRank}>{i + 1}</span>
-                    <span className={styles.productEmoji}>{p.emoji}</span>
+                    <span className={styles.productIcon}><Package size={20} aria-hidden="true" /></span>
                     <div className={styles.productInfo}>
                       <p className={styles.productName}>{p.name}</p>
                       <p className={styles.productQty}>{p.qty} terjual</p>
@@ -165,7 +166,7 @@ export default function LaporanPage() {
             {/* Source breakdown */}
             <div className={`${styles.sourceCard} card`}>
               <div className={styles.chartHeader}>
-                <h3 className={styles.chartTitle}>📱 Sumber Pencatatan</h3>
+                <h3 className={styles.chartTitle}><Smartphone size={18} aria-hidden="true" /> Sumber Pencatatan</h3>
               </div>
               <div className={styles.sourceList}>
                 {d.sumberPencatatan.map((s, i) => (
@@ -186,7 +187,7 @@ export default function LaporanPage() {
             {/* Health card */}
             <div className={`${styles.healthCard} card`}>
               <div className={styles.chartHeader}>
-                <h3 className={styles.chartTitle}>💚 Kesehatan Keuangan</h3>
+                <h3 className={styles.chartTitle}><HeartPulse size={18} aria-hidden="true" /> Kesehatan Keuangan</h3>
               </div>
               <div className={styles.scoreWrap}>
                 <div className={styles.scoreCircle}>
@@ -198,13 +199,13 @@ export default function LaporanPage() {
               <div className={styles.insights}>
                 {d.kesehatanKeuangan.insights.map((insight, i) => (
                   <div key={i} className={styles.insightItem}>
-                    <span className={styles.insightBullet}>✦</span>
+                    <span className={styles.insightBullet}>•</span>
                     <p className={styles.insightText}>{insight}</p>
                   </div>
                 ))}
               </div>
               <div className={styles.kurBanner}>
-                <p className={styles.kurText}>📄 Laporan ini bisa dipakai untuk pengajuan KUR</p>
+                <p className={styles.kurText}><FileText size={16} aria-hidden="true" /> Laporan ini bisa dipakai untuk pengajuan KUR</p>
                 <button className="btn btn-primary btn-sm" id="share-bank-btn">
                   Bagikan ke Bank/Koperasi
                 </button>

@@ -21,7 +21,7 @@ export default function TopBar({
     <header className={styles.topBar}>
       <div className={styles.left}>
         <div>
-          <h2 className={styles.greeting}>{greeting}, {name} 👋</h2>
+          <h2 className={styles.greeting}>{greeting}, {name}</h2>
           <p className={styles.date}>{date}</p>
         </div>
       </div>

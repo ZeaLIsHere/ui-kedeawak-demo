@@ -1,12 +1,12 @@
 'use client';
 
 import Link from 'next/link';
+import { Package } from 'lucide-react';
 import Sidebar from '@/components/layout/Sidebar';
 import TopBar from '@/components/layout/TopBar';
 
-function PlaceholderPage({ title, icon, desc, href, hrefLabel }: {
+function PlaceholderPage({ title, desc, href, hrefLabel }: {
   title: string;
-  icon: string;
   desc: string;
   href?: string;
   hrefLabel?: string;
@@ -25,7 +25,7 @@ function PlaceholderPage({ title, icon, desc, href, hrefLabel }: {
           gap: 20,
           padding: 40,
         }}>
-          <span style={{ fontSize: 64 }}>{icon}</span>
+          <Package size={64} aria-hidden="true" />
           <h1 style={{
             fontFamily: 'var(--font-heading)',
             fontSize: 28,
@@ -55,7 +55,6 @@ export default function PesananPage() {
   return (
     <PlaceholderPage
       title="Pesanan"
-      icon="📦"
       desc="Halaman Pesanan akan menampilkan semua pesanan masuk dari WhatsApp, status pengiriman, dan konfirmasi pembayaran."
       href="/whatsapp"
       hrefLabel="Buka Kotak Masuk WhatsApp →"
